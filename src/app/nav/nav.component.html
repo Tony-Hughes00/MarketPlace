@@ -1,0 +1,87 @@
+<p>! Nav works !</p>
+
+<nav class="nav nav-pills sticky-top navbar-expand-lg navbar-light bg-light" ><!--*ngIf='this.authService.isLoggedIn()'-->
+  <button class="navbar-toggler" type="button" 
+          data-toggle="collapse" data-target="#navbarSupportedContent" 
+          aria-controls="navbarSupportedContent" aria-expanded="false" 
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+
+  </button><!--hamburger pour responsive-->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav nav-pills col-sm-8"><!--Mr auto pousse la recherche à drte-->
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/app-accueil" 
+                data-toggle="pill"  href="#">Accueil</a><!--data-toggle="pill" met en pillule le menu actif-->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/app-forum" 
+                  data-toggle="pill" href="#">Avant projet</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink='/app-blogs' 
+                  data-toggle="pill" href="#">Les projets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/app-calendrier-page" 
+                  data-toggle="pill" href="#">Calendrier</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/app-archives" 
+                data-toggle="pill" href="#">Archives</a>
+      </li>
+      <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle" href="#"
+              id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+          Administration
+        </a>
+        <div class="dropdown-menu" aria-labelledby="Administration">
+          <a class="dropdown-item" href="#" 
+                routerLink="/app-profile-list" 
+                data-toggle="pill">Espace utilisateurs</a>
+          <a class="dropdown-item" href="#" 
+                [routerLink]="['/app-profile-list/val', true]" 
+                data-toggle="pill">Utilisateur(s) à valider</a>
+          <a class="dropdown-item" href = "#" 
+                routerLink= "/app-presentation-form" 
+                data-toggle="pill">Ajouter un établissement</a>
+          <a class="dropdown-item" href = "#" 
+                [routerLink]= "['/app-presentation-form/assos', true]" 
+                data-toggle="pill">Ajouter une association</a>
+          <a class="dropdown-item" href="#" routerLink="/app-admin" 
+                data-toggle="pill">Espace documents</a>
+          <a class="dropdown-item" href="#" (click)="AddToCalendar()" 
+                data-toggle="pill">Ajouter au calendrier</a>
+        </div>
+      </li>
+    </ul>
+    <div class="col">
+        <div class="row">
+          <div class="col-sm-6">
+            <input class="form-control pad-NaN full-width" type="search" 
+                  placeholder="Rechercher"
+                  aria-label="Search" #recherche>
+          </div>
+          <div class="col-sm-1">
+            <i (click)="onSearch(recherche.value)" class="fas fa-search"></i>
+          </div>
+          <div class="col-sm-1">
+          </div>
+          <div class="col-sm-1 pad-NaN">
+          <button class="avatar-button pad-NaN" >
+            <i class="fas fa-user" title="Votre profil"></i>
+          </button>
+        </div>
+        <div class="col-sm-1 pad-NaN">
+          <button >
+            <i class="fas fa-power-off pad-NaN" title="Déconnexion" ></i> <!-- modif client le 16-05-2019 au lieu de sign-out-alt-->
+          </button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- collapse nav-bar-->
+</nav>
+
+
